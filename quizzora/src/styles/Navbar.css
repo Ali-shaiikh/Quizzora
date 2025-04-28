@@ -1,0 +1,242 @@
+/* Navbar.css */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+  background-color: rgba(106, 78, 184, 0.95);
+  box-shadow: 0 2px 10px rgba(93, 76, 184, 0.1);
+  padding: 15px 0;
+}
+
+/* Hero section specific styling */
+.navbar.hero {
+  background-color: transparent;
+}
+
+.navbar.hero .logo,
+.navbar.hero .nav-links button:not(.get-started-btn) {
+  color: rgb(86, 60, 151);
+}
+
+/* Other sections styling */
+.navbar.features,
+.navbar.howToStart,
+.navbar.aboutUs {
+  background-color: rgba(245, 243, 241, 0.9);
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #674eea; /* Primary color */
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links button {
+  margin-left: 30px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  color: #633bb9;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-links button::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #674eea;
+  transition: width 0.3s ease;
+}
+
+.nav-links button:hover::after,
+.nav-links button.active::after {
+  width: 100%;
+}
+
+.nav-links button.active {
+  color: #674eea;
+}
+
+.nav-links .get-started-btn {
+  background: linear-gradient(45deg, #674eea, #5343e6);
+  color: white !important;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(83, 67, 230, 0.3);
+  margin-left: 40px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav-links .get-started-btn::after {
+  display: none;
+}
+
+.nav-links .get-started-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(83, 67, 230, 0.4);
+}
+
+/* Mobile menu styles */
+.mobile-menu-button {
+  display: none;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+/* Animation for mobile menu */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .desktop-menu {
+    display: none;
+  }
+  
+  .mobile-menu-button {
+    display: block;
+  }
+  
+  .mobile-menu-button button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .mobile-menu-button .icon {
+    width: 24px;
+    height: 24px;
+    color: #674eea;
+  }
+  
+  .navbar.hero .mobile-menu-button .icon {
+    color: white;
+  }
+  
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+  }
+  
+  .mobile-menu.open {
+    padding: 15px 0;
+    max-height: 300px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .mobile-menu button {
+    margin: 10px 20px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    text-align: left;
+    position: relative;
+    animation: slideDown 0.3s ease forwards;
+    animation-delay: calc(var(--index) * 0.1s);
+    opacity: 0;
+  }
+  
+  .mobile-menu button::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #674eea;
+    transition: width 0.3s ease;
+  }
+  
+  .mobile-menu button:hover::after,
+  .mobile-menu button.active::after {
+    width: 100%;
+  }
+  
+  .mobile-menu button.active {
+    color: #674eea;
+  }
+  
+  .mobile-menu .get-started-btn {
+    background: linear-gradient(45deg, #674eea, #5343e6);
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(83, 67, 230, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 15px 20px;
+  }
+  
+  .mobile-menu .get-started-btn::after {
+    display: none;
+  }
+  
+  .mobile-menu.open button:nth-child(1) {
+    --index: 1;
+  }
+  
+  .mobile-menu.open button:nth-child(2) {
+    --index: 2;
+  }
+  
+  .mobile-menu.open button:nth-child(3) {
+    --index: 3;
+  }
+  
+  .mobile-menu.open button:nth-child(4) {
+    --index: 4;
+  }
+}

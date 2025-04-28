@@ -1,0 +1,78 @@
+/* App.css */
+.app {
+  transition: background-color 0.5s ease;
+}
+
+.section-hero,
+.section-features,
+.section-how-to-start,
+.section-about-us {
+  min-height: 100vh;
+  padding: 80px 0;
+  transition: all 0.5s ease;
+}
+
+/* Hero section styles */
+.app.hero {
+  background-color: #f5f7ff;
+  color: #333;
+}
+
+/* Features section styles */
+.section-features {
+  position: relative;
+  background: linear-gradient(135deg, #f5f7ff 0%, #e9eeff 100%);
+}
+
+.app.features .section-hero {
+  filter: blur(5px);
+}
+
+/* How to Start section styles */
+.section-how-to-start {
+  position: relative;
+  background: linear-gradient(135deg, #f0f4ff 0%, #e5eaff 100%);
+}
+
+.app.howToStart .section-hero,
+.app.howToStart .section-features {
+  filter: blur(5px);
+}
+
+/* About Us section styles */
+.section-about-us {
+  position: relative;
+  background: linear-gradient(135deg, #edf2ff 0%, #dce5ff 100%);
+}
+
+.app.aboutUs .section-hero,
+.app.aboutUs .section-features,
+.app.aboutUs .section-how-to-start {
+  filter: blur(5px);
+}
+
+/* Make sure the active section isn't blurred */
+.app.features .section-features,
+.app.howToStart .section-how-to-start,
+.app.aboutUs .section-about-us {
+  filter: none;
+  z-index: 2;
+}
+
+/* Transition for content to fade in */
+.section-hero > *,
+.section-features > *,
+.section-how-to-start > *,
+.section-about-us > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.app.hero .section-hero > *,
+.app.features .section-features > *,
+.app.howToStart .section-how-to-start > *,
+.app.aboutUs .section-about-us > * {
+  opacity: 1;
+  transform: translateY(0);
+}
