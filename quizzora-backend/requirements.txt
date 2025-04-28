@@ -1,0 +1,14 @@
+fastapi==0.109.2
+uvicorn==0.27.1
+python-multipart==0.0.9
+openai-whisper==20240930
+pdfplumber==0.10.3
+transformers==4.37.2
+pydantic==2.6.1
+tqdm==4.66.1
+langchain-community==0.0.27
+langchain-text-splitters==0.0.1
+chromadb==0.4.22
+langchain-ollama==0.3.2
+werkzeug==3.0.1
+pymupdf==1.23.8 
